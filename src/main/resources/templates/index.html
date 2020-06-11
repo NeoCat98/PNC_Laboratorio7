@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inicio</title>
+<title>Ingresar Estudiante</title>
 </head>
 <body>
-	<form action="/insertarContribuyente" method="post" th:object="${contribuyente}">
-		<div>
-			<label>Nombre:</label>
-			<input type="text" th:field="${contribuyente.s_nombre}">
-			<span th:errors="*{s_nombre}"></span>
-		</div><br>
-		<div>
-			<label>Apellido:</label>
-			<input type="text" th:field="*{s_apellido}">
-			<span th:errors ="*{s_apellido}" style="color: #FF0000"></span>
-		</div><br>
-		<div>
-			<label>NIT:</label>
-			<input type="text" th:field="*{s_nit}">
-			<span th:errors ="*{s_nit}" style="color: #FF0000"></span>
-		</div><br>
-		<select  th:field="${contribuyente.c_importanciafk}">
-	  		<option th:each="imp : ${importancias}" th:value="${imp.c_importancia}" th:text="${imp.s_importancia}"></option>
-		</select><br><br>
-		<input type="submit" value="Guardar">
-	</form>
-	<a href="/listado"><input type="button" value="Ver contribuyentes"></a>
+	<h1>Ingresar Estudiante</h1>
+	<div style="">
+		<form th:action="@{/insertarEstudiante}" th:object="${estudiante}" method="post">
+			<label>Nombre: </label>
+			<input type= "text" th:field="${estudiante.nombre}"><br>
+			<span th:errors = "*{nombre}" style="color: #FF0000"></span><br>
+			
+			<label>Apellido: </label>
+			<input type= "text" th:field="*{apellido}"><br>
+			<span th:errors = "*{apellido}" style="color: #FF0000"></span><br>
+			
+			<label >Carnet de Estudiante: </label>
+			<input type= "text" th:field="*{carnet}"><br>
+			<span th:errors = "*{carnet}" style="color: #FF0000"></span><br>
+			
+			<label>Carrera: </label>
+			<input type= "text" th:field="*{carrera}" ><br>
+			<span th:errors = "*{carrera}" style="color: #FF0000"></span><br>
+			
+			<input type="submit" value="Agregar Estudiante">
+		</form>
+		<a href="/listado"><input type="button" value="Listado de Estudiantes"></a>
+	</div>
 </body>
 </html>

@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de contribuyentes</title>
+<title>Ingresar Estudiante</title>
 </head>
 <body>
-	<h1>Listado de Contribuyentes</h1>
+	<h1>Listado de Estudiante</h1>
 	<table>
 		<thead>
+			<th>Codigo</th>
 			<th>Nombre</th>
 			<th>Apellido</th>
-			<th>NIT</th>
-			<th>Fecha de ingreso</th>
-			<th>Importancia</th>
+			<th>Carnet</th>
+			<th>Carrera</th>
 		</thead>
-		<th:block th:each="contribuyente, row:${contribuyentes}">
+		<th:block th:each="estudiante, row:${estudiantes}">
 			<tr>
-				<th th:text="${contribuyente.s_nombre}" />
-				<th th:text="${contribuyente.s_apellido}" />
-				<th th:text="${contribuyente.s_nit}" />
-				<th th:text="${contribuyente.f_fecha_ingreso}" />
-				<th th:text="${contribuyente.importancia.s_importancia}" />
+				<th th:text="${estudiante.codigoEstudiante}" />
+				<th th:text="${estudiante.nombre}" />
+				<th th:text="${estudiante.apellido}" />
+				<th th:text="${estudiante.carnet}" />
+				<th th:text="${estudiante.carrera}" />
 			</tr>
 		</th:block>
-	</table><br>
-	<a href="/inicio"><input type="button" value="Regresar"></a>
+	</table>
+	<a href="/inicio"><input type="button" value="Insertar otro estudiante"></a>
+	<h2>Eliminar Estudiante</h2>
+	<div style="">
+		<form th:action="@{/eliminarEstudiante}" method="post">
+			<label>Codigo del Estudiante:</label>
+			<input type= "text" name="codigo"><br>
+			<input type="submit" value="Eliminar Estudiante">
+		</form>
+	</div>
 </body>
 </html>

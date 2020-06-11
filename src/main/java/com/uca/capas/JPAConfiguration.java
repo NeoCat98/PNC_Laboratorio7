@@ -13,7 +13,9 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 public class JPAConfiguration {
-	@Bean(name="entityManagerFactory")
+	
+
+	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
@@ -31,7 +33,7 @@ public class JPAConfiguration {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/Labo6");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/ESTUDIANTE");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("86F1A07C");
 
@@ -41,7 +43,6 @@ public class JPAConfiguration {
 	Properties hibernateProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.show_sql", "true");
-		//properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 		return properties;
 	}

@@ -11,7 +11,7 @@
 	<groupId>com.uca</groupId>
 	<artifactId>capas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>capas</name>
+	<name>Laboratorio5</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -55,11 +55,6 @@
 		    <version>42.2.12</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>5.4.16.Final</version>
-		</dependency>
-		<dependency>	
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-entitymanager</artifactId>
 		    <version>5.4.15.Final</version>
