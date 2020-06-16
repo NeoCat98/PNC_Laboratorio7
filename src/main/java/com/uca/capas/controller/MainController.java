@@ -42,7 +42,6 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("estudiante",new Estudiante());
 		mav.setViewName("index");
-		
 		return mav;
 	}
 	
@@ -92,11 +91,11 @@ public class MainController {
 		List<Estudiante> estudiantes = null;
 		try {
 			estudianteService.delete(id);
-			estudiantes = estudianteService.findAll();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		estudiantes = estudianteService.findAll();
 		mav.addObject("estudiantes", estudiantes);
 		mav.setViewName("listado");
 		return mav;

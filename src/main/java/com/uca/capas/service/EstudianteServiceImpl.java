@@ -6,16 +6,16 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
-import com.uca.capas.dao.EstudianteDAO;
 import com.uca.capas.domain.Estudiante;
 import com.uca.capas.repositories.EstudianteRepo;
 
+@Repository
 public class EstudianteServiceImpl implements EstudianteService{
 
 	@Autowired
 	EstudianteRepo estudianteRepo;
-	//EstudianteDAO estudianteDAO;
 	
 	@Override
 	public List<Estudiante> findAll() throws DataAccessException {
