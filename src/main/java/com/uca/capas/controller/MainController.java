@@ -72,28 +72,27 @@ public class MainController {
 	@RequestMapping("/actualizarEstudiante")
 	public ModelAndView editar(@RequestParam(value="id") Integer codigo) {
 		ModelAndView mav = new ModelAndView();
-		Estudiante estudiante;
-		estudiante = estudianteService.findOne(codigo);
-		if(estudiante == null) {
-			mav.setViewName("listado");
-		}
-		else {
+		if(codigo != null) {
+			Estudiante estudiante;
+			estudiante = estudianteService.findOne(codigo);
 			mav.addObject("estudiante", estudiante);
 			mav.setViewName("editar");
+		}
+		else {
+			List<Estudiante> estudiantes = estudianteService.findAll();
+			mav.addObject("estudiantes", estudiantes);
+			mav.setViewName("listado");
 		}
 		return mav;
 		
 	}
 	
 	@RequestMapping("/eliminarEstudiante")
-	public ModelAndView delete(@RequestParam(value="codigo") int id) {
+	public ModelAndView delete(@RequestParam(value="codigo") Integer id) {
 		ModelAndView mav = new ModelAndView();
 		List<Estudiante> estudiantes = null;
-		try {
+		if(id != null) {
 			estudianteService.delete(id);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
 		}
 		estudiantes = estudianteService.findAll();
 		mav.addObject("estudiantes", estudiantes);
