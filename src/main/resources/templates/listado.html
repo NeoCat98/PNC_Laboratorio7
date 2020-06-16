@@ -24,13 +24,22 @@
 			</tr>
 		</th:block>
 	</table>
-	<a href="/inicio"><input type="button" value="Insertar otro estudiante"></a>
+	<a href="@{/agregarEstudiante}"><input type="button" value="Insertar otro estudiante"></a>
 	<h2>Eliminar Estudiante</h2>
 	<div style="">
 		<form th:action="@{/eliminarEstudiante}" method="post">
 			<label>Codigo del Estudiante:</label>
 			<input type= "text" name="codigo"><br>
 			<input type="submit" value="Eliminar Estudiante">
+		</form>
+	</div>
+	<h2>Editar Estudiante</h2>
+	<div>
+		<form th:action="@{/actualizarEstudiante}" method="post">
+			<label>Codigo del estudiante: </label>
+			<input type="number" name="id"> 
+			<br>
+			<input type="submit" value="editar">
 		</form>
 	</div>
 </body>

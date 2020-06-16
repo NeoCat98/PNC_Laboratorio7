@@ -39,5 +39,17 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 		entityManager.remove(estudiante);
 		
 	}
+	
+	@Override
+	public Estudiante findOne(Integer codigo) throws DataAccessException {
+		Estudiante estudiante = null;
+		try {
+			estudiante = entityManager.find(Estudiante.class, codigo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return estudiante;
+	}
 
 }
